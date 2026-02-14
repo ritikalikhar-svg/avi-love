@@ -2,162 +2,197 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Will You Be My Valentine? 💖</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Us 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
-}
 
 body{
-    background: linear-gradient(135deg,#ff5f9e,#ff9a9e);
-    overflow:hidden;
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,#fff1eb,#ace0f9);
+overflow-x:hidden;
+color:#333;
 }
 
-.slide{
-    display:none;
-    height:100vh;
-    width:100%;
-    color:white;
-    text-align:center;
-    padding:40px;
+/* floating hearts */
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+opacity:.6;
+animation:float 6s linear infinite;
 }
 
-.slide.active{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    animation:fade 1s;
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-110vh);}
 }
 
-h1{ font-size:3rem; margin-bottom:15px; }
-p{ font-size:1.3rem; max-width:600px; }
+/* hero */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:42px;
+animation:fadeDown 1s ease;
+}
+
+.hero p{
+margin-top:10px;
+font-size:18px;
+opacity:.8;
+animation:fadeUp 1.2s ease;
+}
 
 button{
-    margin:15px;
-    padding:15px 30px;
-    font-size:1.1rem;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    background:white;
-    color:#ff3b7a;
-    font-weight:bold;
+padding:14px 30px;
+border:none;
+border-radius:25px;
+background:#ff6b81;
+color:white;
+font-size:16px;
+margin-top:20px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-button:hover{ transform:scale(1.05); }
-
-#msg{
-    margin-top:20px;
-    font-size:1.2rem;
-    min-height:60px;
+/* sections */
+.section{
+padding:80px 20px;
+text-align:center;
 }
 
-/* hearts */
-.heart{
-    position:absolute;
-    animation:fall linear infinite;
-}
-
-@keyframes fall{
-    from{ transform:translateY(-10vh); }
-    to{ transform:translateY(110vh); }
+.card{
+background:white;
+border-radius:25px;
+padding:30px;
+max-width:480px;
+margin:auto;
+box-shadow:0 15px 35px rgba(0,0,0,0.12);
+animation:fade 1.2s ease;
 }
 
 @keyframes fade{
-    from{ opacity:0; }
-    to{ opacity:1; }
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
 }
+
+.title{
+font-family:'Playfair Display',serif;
+font-size:26px;
+margin-bottom:10px;
+}
+
+/* small animation */
+.love{
+font-size:60px;
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+/* final section */
+.final{
+background:#ff6b81;
+color:white;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- Slide 1 -->
-<div class="slide active">
-    <h1>Hey Love ❤️</h1>
-    <p>I made something special just for you…</p>
-    <button onclick="nextSlide()">Next ➡️</button>
+<!-- floating hearts -->
+<script>
+for(let i=0;i<25;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(h);
+}
+</script>
+
+<!-- hero -->
+<div class="hero">
+<h1>Hey Love ❤️</h1>
+<p>Scroll karo… hamari chhoti si story hai</p>
+<button onclick="scrollPage()">Start</button>
 </div>
 
-<!-- Slide 2 -->
-<div class="slide">
-    <h1>You Mean A Lot 💕</h1>
-    <p>Every moment with you makes my world brighter.</p>
-    <button onclick="nextSlide()">Next ➡️</button>
+<!-- section 1 -->
+<div class="section">
+<div class="card">
+<div class="love">💑</div>
+<div class="title">It started simple</div>
+<p>
+Pata bhi nahi chala kab baat karna habit ban gaya…  
+aur tum important.
+</p>
+</div>
 </div>
 
-<!-- Slide 3 -->
-<div class="slide">
-    <h1>One Last Thing 💌</h1>
-    <p>Please don’t break my heart 😢</p>
-    <button onclick="nextSlide()">Reveal 💖</button>
+<!-- section 2 -->
+<div class="section">
+<div class="card">
+<div class="love">😊</div>
+<div class="title">About you</div>
+<p>
+Tumhari smile, tumhari baatein, tumhara care…  
+ye sab normal nahi lagta.  
+Real lagta hai.
+</p>
+</div>
 </div>
 
-<!-- Slide 4 -->
-<div class="slide">
-    <h1>Will You Be My Valentine? 🌹</h1>
+<!-- section 3 -->
+<div class="section">
+<div class="card">
+<div class="love">🤍</div>
+<div class="title">Us</div>
+<p>
+Perfect nahi hai sab…  
+but jo hai… real hai.  
+Aur mujhe wahi pasand hai.
+</p>
+</div>
+</div>
 
-    <div>
-        <button onclick="yes()">YES 💖</button>
-        <button onclick="no()">NO 😢</button>
-    </div>
-
-    <p id="msg"></p>
+<!-- final -->
+<div class="section final">
+<div class="card" style="background:none; box-shadow:none;">
+<h1>Stay ❤️</h1>
+<p>
+Bas saath rehna…  
+baaki sab ho jayega.
+</p>
+</div>
 </div>
 
 <script>
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
-function nextSlide(){
-    slides[index].classList.remove("active");
-    index++;
-    slides[index].classList.add("active");
+function scrollPage(){
+window.scrollTo({
+top: window.innerHeight,
+behavior: "smooth"
+});
 }
-
-/* emotional messages */
-let messages = [
-    "Please don’t say no… my heart chose you 🥺💔",
-    "Are you sure? I was really hoping it would be YES 😢",
-    "One chance… I promise I’ll make you smile 💕",
-    "My heart will wait till you say YES 💖",
-    "Okay… last try, don’t break my heart 😭🌹"
-];
-
-let msgIndex = 0;
-
-function no(){
-    document.getElementById("msg").innerText = messages[msgIndex];
-    msgIndex = (msgIndex + 1) % messages.length;
-}
-
-function yes(){
-    document.body.innerHTML = `
-    <div style="height:100vh;display:flex;
-    flex-direction:column;justify-content:center;
-    align-items:center;color:white;text-align:center">
-        <h1>YAYYYY 😍💘</h1>
-        <p>You just made me the happiest person alive!</p>
-        <h2>Happy Valentine’s Day 💕</h2>
-    </div>`;
-}
-
-/* heart rain */
-setInterval(()=>{
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(Math.random()*20+10)+"px";
-    heart.style.animationDuration=(Math.random()*3+2)+"s";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
-},200);
 </script>
 
 </body>
